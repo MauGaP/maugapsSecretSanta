@@ -1,0 +1,12 @@
+[
+    {"name": "Mauro", "email": "mauro.pedano@hotmail.com","partner": "Micka"},
+    {"name": "Micka", "email": "mauro.pedano@hotmail.com","partner": "Mauro"},
+    {"name": "Ani", "email": "mauro.pedano@hotmail.com","partner": "Heraclio"},
+    {"name": "Heraclio", "email": "mauro.pedano@hotmail.com","partner": "Ani"},
+    {"name": "Gabi", "email": "mauro.pedano@hotmail.com","partner": "Yamy"},
+    {"name": "Yami", "email": "mauro.pedano@hotmail.com","partner": "Gabi"},
+    {"name": "Patri", "email": "mauro.pedano@hotmail.com","partner": "Piano"},
+    {"name": "Piano", "email": "mauro.pedano@hotmail.com","partner": "Patri"},
+    {"name": "Vane", "email": "mauro.pedano@hotmail.com","partner": "Jose"},
+    {"name": "Jose", "email": "mauro.pedano@hotmail.com","partner": "Vane"}
+]
