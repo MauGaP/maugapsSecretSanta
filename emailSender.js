@@ -1,9 +1,9 @@
-const nodemailer = require("nodemailer");
-const createSecretSantaEmail = require("./emailtemplate");
+const nodemailer = require('nodemailer');
+const createSecretSantaEmail = require('./emailtemplate');
 
 async function sendEmails(assignments) {
   const transporter = nodemailer.createTransport({
-    service: "hotmail", // Update service to 'hotmail'
+    service: 'hotmail', // Update service to 'hotmail'
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
@@ -11,23 +11,20 @@ async function sendEmails(assignments) {
   });
 
   for (const person of assignments) {
-    const emailContent = createSecretSantaEmail(
-      person.name,
-      person.secretSantaFor
-    );
+    const emailContent = createSecretSantaEmail(person.name, person.secretSantaFor);
 
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: person.email,
-      subject: "🎄Tu amigo invisible esta Navidad🌟",
+      subject: '🎄Tu amigo invisible esta Navidad🌟',
       html: emailContent,
     };
 
     try {
       await transporter.sendMail(mailOptions);
-      console.log("Email sent successfully to", person.name);
+      console.log('Email sent successfully to', person.name);
     } catch (error) {
-      console.log("Error sending email to", person.name, ":", error);
+      console.log('Error sending email to', person.name, ':', error);
     }
   }
 }
