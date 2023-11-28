@@ -34,7 +34,6 @@ function assignSecretSantas(participants) {
   }));
 }
 
-// Main execution
 const assignments = assignSecretSantas(participants);
 // console.log(assignments);
 sendEmails(assignments);
