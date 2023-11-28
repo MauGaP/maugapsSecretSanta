@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "nodemailer": "^6.9.7"
+  },
+  "name": "maugapssecretsanta",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MauGaP/maugapsSecretSanta.git"
+  },
+  "keywords": [
+    "secretsanta",
+    "nodemailer",
+    "email"
+  ],
+  "author": "MauGaP",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MauGaP/maugapsSecretSanta/issues"
+  },
+  "homepage": "https://github.com/MauGaP/maugapsSecretSanta#readme",
+  "description": ""
+}
