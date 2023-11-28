@@ -1,34 +1,35 @@
-const nodemailer = require('nodemailer');
-const createSecretSantaEmail = require('./emailtemplate.js');
+const nodemailer = require("nodemailer");
+const createSecretSantaEmail = require("./emailtemplate");
 
-function sendEmails(assignments) {
-    const transporter = nodemailer.createTransport({
-        service: 'hotmail', // Replace with your preferred service
-        auth: {
-            user: process.env.EMAIL_USER,
-            pass: process.env.EMAIL_PASS
-        }
-    });
+async function sendEmails(assignments) {
+  const transporter = nodemailer.createTransport({
+    service: "hotmail", // Update service to 'hotmail'
+    auth: {
+      user: process.env.EMAIL_USER,
+      pass: process.env.EMAIL_PASS,
+    },
+  });
 
-    assignments.forEach(person => {
-        // Generate the email content using the template function
-        const emailContent = createSecretSantaEmail(person.name, person.secretSantaFor);
+  for (const person of assignments) {
+    const emailContent = createSecretSantaEmail(
+      person.name,
+      person.secretSantaFor
+    );
 
-        const mailOptions = {
-            from: process.env.EMAIL_USER,
-            to: person.email,
-            subject: '🎄Tu amigo invisible esta Navidad🌟',
-            html: emailContent // Use the HTML content
-        };
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: person.email,
+      subject: "🎄Tu amigo invisible esta Navidad🌟",
+      html: emailContent,
+    };
 
-        transporter.sendMail(mailOptions, function(error, info){
-            if (error) {
-                console.log('Error sending email to', person.name, ':', error);
-            } else {
-                console.log('Email sent successfully to', person.name);
-            }
-        });
-    });
+    try {
+      await transporter.sendMail(mailOptions);
+      console.log("Email sent successfully to", person.name);
+    } catch (error) {
+      console.log("Error sending email to", person.name, ":", error);
+    }
+  }
 }
 
 module.exports = sendEmails;
