@@ -1,12 +1,6 @@
 [
-  { "name": "Mauro", "email": "mauro.pedano@hotmail.com", "partner": "Micka" },
-  { "name": "Micka", "email": "micka_cba15@hotmail.com", "partner": "Mauro" },
-  { "name": "Ani", "email": "lanita1910@gmail.com", "partner": "Heraclio" },
-  { "name": "Heraclio", "email": "agustin.aoki@astropay.com", "partner": "Ani" },
-  { "name": "Gabi", "email": "gabi.wassan@outlook.com", "partner": "Yamy" },
-  { "name": "Yami", "email": "yamilecoronel@gmail.com", "partner": "Gabi" },
-  { "name": "Patri", "email": "giovanninipdv@gmail.com", "partner": "Piano" },
-  { "name": "Piano", "email": "martin_p_02@hotmail.com", "partner": "Patri" },
-  { "name": "Vane", "email": "vane_bruvera@hotmail.com", "partner": "Jose" },
-  { "name": "Jose", "email": "jose_alvarez6@outlook.com", "partner": "Vane" }
+  { "name": "placeholder", "email": "a@b.com", "partner": "partnerPlaceholder" },
+  { "name": "placeholder", "email": "a@b.com", "partner": "partnerPlaceholder" },
+  { "name": "placeholder", "email": "a@b.com", "partner": "partnerPlaceholder" },
+  { "name": "placeholder", "email": "a@b.com", "partner": "partnerPlaceholder" }
 ]
