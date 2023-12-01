@@ -6,23 +6,23 @@ function addFriendRow() {
   idCell.textContent = table.rows.length; // Assuming ID is the row number
 
   var nameCell = newRow.insertCell(1);
-  var nameInput = document.createElement('input');
-  nameInput.type = 'text';
-  nameInput.name = 'name';
-  nameInput.value = 'Nombre';
+  var nameInput = createInputField('text', 'name', 'Nombre');
   nameCell.appendChild(nameInput);
 
   var emailCell = newRow.insertCell(2);
-  var emailInput = document.createElement('input');
-  emailInput.type = 'email';
-  emailInput.name = 'email';
-  emailInput.value = 'correo@example.com';
+  var emailInput = createInputField('email', 'email', 'correo@example.com');
   emailCell.appendChild(emailInput);
 
   var excludeCell = newRow.insertCell(3);
-  var excludeInput = document.createElement('input');
-  excludeInput.type = 'text';
-  excludeInput.name = 'exclude';
-  excludeInput.value = 'Nombres';
+  var excludeInput = createInputField('text', 'exclude', '');
   excludeCell.appendChild(excludeInput);
+}
+
+function createInputField(type, name, value) {
+  var input = document.createElement('input');
+  input.type = type;
+  input.name = name;
+  input.value = value;
+  input.onblur = saveToSessionStorage; // Attach the onblur event
+  return input;
 }

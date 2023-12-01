@@ -37,6 +37,7 @@
 
         <section class="friend-list">
             <form id="friendForm">
+                <button type="button" onclick="addFriendRow()">Añadir más amigos</button>
                 <table id="friendsTable">
                     <thead>
                         <tr>
@@ -49,21 +50,21 @@
                     <tbody>
                         <tr>
                             <td>1</td>
-                            <td><input type="text" name="name" value="Nombre"></td>
-                            <td><input type="email" name="email" value="correo@example.com"></td>
-                            <td><input type="text" name="exclude" value="Nombres"></td>
+                            <td><input type="text" name="name" value="Nombre" onblur="saveToSessionStorage()"></td>
+                            <td><input type="email" name="email" value="correo@example.com"
+                                    onblur="saveToSessionStorage()"></td>
+                            <td><input type="text" name="exclude" value="" onblur="saveToSessionStorage()"></td>
                         </tr>
                         <tr>
                             <td>2</td>
-                            <td><input type="text" name="name" value="Nombre"></td>
-                            <td><input type="email" name="email" value="correo@example.com"></td>
-                            <td><input type="text" name="exclude" value="Nombres"></td>
+                            <td><input type="text" name="name" value="Nombre" onblur="saveToSessionStorage()"></td>
+                            <td><input type="email" name="email" value="correo@example.com"
+                                    onblur="saveToSessionStorage()"></td>
+                            <td><input type="text" name="exclude" value="" onblur="saveToSessionStorage()"></td>
                         </tr>
                     </tbody>
                 </table>
-                <button type="button" onclick="addFriendRow()">Añadir más amigos</button>
                 <button type="button" onclick="clearParticipants()">Borrar todos</button>
-                <button type="button" onclick="saveToSessionStorage()">Guardar</button>
 
                 <!-- Replace with actual functionality to add friends -->
             </form>
