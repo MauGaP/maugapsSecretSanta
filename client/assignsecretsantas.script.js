@@ -5,24 +5,72 @@ function shuffleArray(array) {
   }
 }
 
-function assignSecretSantas(participants) {
-  shuffleArray(participants);
-  let assignments = new Map();
+function isValidAssignment(giver, receiver) {
+  if (giver.name === receiver.name) {
+    return false;
+  }
+  let excluded = giver.partner.split(',').map(name => name.trim().toLowerCase());
+  return !excluded.includes(receiver.name.toLowerCase());
+}
 
-  for (let i = 0; i < participants.length; i++) {
-    let nextIndex = (i + 1) % participants.length;
-    while (participants[i].partner === participants[nextIndex].name) {
-      nextIndex = (nextIndex + 1) % participants.length;
+function tryAssignSecretSantas(participants, maxAttempts = 100) {
+  let attempts = 0;
 
-      if (nextIndex === i) {
-        throw new Error('Unsolvable Secret Santa assignment for the given constraints.');
+  while (attempts < maxAttempts) {
+    shuffleArray(participants);
+    let valid = true;
+    let assignments = new Map();
+
+    for (let i = 0; i < participants.length; i++) {
+      let receiverIndex = (i + 1) % participants.length;
+      if (!isValidAssignment(participants[i], participants[receiverIndex])) {
+        valid = false;
+        break;
       }
+      assignments.set(participants[i].name, participants[receiverIndex].name);
     }
-    assignments.set(participants[i].name, participants[nextIndex].name);
+
+    if (valid) {
+      return participants.map(participant => ({
+        ...participant,
+        secretSantaFor: assignments.get(participant.name),
+      }));
+    }
+
+    attempts++;
   }
 
-  return participants.map(participant => ({
-    ...participant,
-    secretSantaFor: assignments.get(participant.name),
-  }));
+  throw new Error('Unable to find a valid Secret Santa assignment');
+}
+
+function removeDuplicateParticipants(participants) {
+  let unique = new Map();
+  participants.forEach(p => {
+    if (!unique.has(p.name.toLowerCase().trim())) {
+      unique.set(p.name.toLowerCase().trim(), p);
+    }
+  });
+  return Array.from(unique.values());
+}
+
+function assignSecretSantas(allParticipants) {
+  let participants = removeDuplicateParticipants(allParticipants);
+
+  if (checkForDuplicateNames(participants)) {
+    throw new Error('Duplicate names found in participant list');
+  }
+
+  return tryAssignSecretSantas(participants);
+}
+
+function checkForDuplicateNames(participants) {
+  let nameSet = new Set();
+  for (let participant of participants) {
+    if (nameSet.has(participant.name.toLowerCase())) {
+      console.error(`Duplicate name found: ${participant.name}`);
+      return true;
+    }
+    nameSet.add(participant.name.toLowerCase());
+  }
+  return false;
 }
