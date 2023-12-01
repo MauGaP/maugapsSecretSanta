@@ -1,103 +1,108 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #fdfdfd;
-    color: #333;
-    margin: 0;
-    padding: 20px;
+  font-family: Arial, sans-serif;
+  background-color: #fdfdfd;
+  color: #333;
+  margin: 0;
+  padding: 20px;
 }
 
 header {
-    text-align: center;
-    margin-bottom: 30px;
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 h1 {
-    color: #b3000c;
+  color: #b3000c;
 }
 
 table {
-    width: 100%;
-    margin: 20px auto;
-    border-collapse: collapse;
-    border-radius: 8px;
-    overflow: hidden;
+  width: 100%;
+  margin: 20px auto;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
-th, td {
-    border: 1px solid #ddd;
-    padding: 12px 15px;
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 12px 15px;
 }
 
 th {
-    background-color: #f8f9fa;
-    color: #6c757d;
+  background-color: #f8f9fa;
+  color: #6c757d;
 }
 
 tbody tr:nth-child(odd) {
-    background-color: #f2f2f2;
+  background-color: #f2f2f2;
 }
 
 .button {
-    background-color: #28a745;
-    color: white;
-    padding: 10px 20px;
-    border: 1px solid #218838;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    transition: background-color 0.3s, box-shadow 0.3s;
-    text-align: center;
-    cursor: pointer;
+  background-color: #28a745;
+  color: white;
+  padding: 10px 20px;
+  border: 1px solid #218838;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s, box-shadow 0.3s;
+  text-align: center;
+  cursor: pointer;
+}
+
+.button-right {
+  float: right;
+}
+
+.button-center {
+  display: block;
+  margin: auto;
 }
 
 .button:hover {
-    background-color: #218838;
+  background-color: #218838;
 }
 
 .button:active {
-    background-color: #1e7e34;
+  background-color: #1e7e34;
 }
 
 .button:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
 }
 
 footer {
-    text-align: center;
-    padding-top: 20px;
-    font-size: 0.8em;
-    background-color: #f8f9fa;
-    color: #6c757d;
-}
-
-.instructions, .actions {
-    text-align: center;
-    margin-bottom: 20px;
+  text-align: center;
+  padding-top: 20px;
+  font-size: 0.8em;
+  background-color: #f8f9fa;
+  color: #6c757d;
 }
 
 .friend-list {
-    width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #fff;
+  padding: 15px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #friendsTable input[type='text'],
 #friendsTable input[type='email'] {
-    border: none;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 10px;
-    background-color: transparent;
-    color: #495057;
+  border: none;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  background-color: transparent;
+  color: #495057;
 }
 
 #friendsTable input[type='text']:focus,
 #friendsTable input[type='email']:focus {
-    background-color: #e9ecef;
+  background-color: #e9ecef;
 }

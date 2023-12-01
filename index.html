@@ -27,7 +27,6 @@
 
     <header>
         <h1>Sorteo del Amigo Invisible</h1>
-        <!-- Add additional navigation or header content -->
     </header>
 
     <main>
@@ -38,7 +37,7 @@
         <section class="friend-list">
             <form id="friendForm">
                 <button type="button" class="button" onclick="addFriendRow()">Añadir más amigos</button>
-                <button type="button" class="button" style="float: right;" onclick="clearParticipants()">Borrar
+                <button type="button" class="button button-right" onclick="clearParticipants()">Borrar
                     todos</button>
                 <table id="friendsTable">
                     <thead>
@@ -66,14 +65,9 @@
                         </tr>
                     </tbody>
                 </table>
-
-                <!-- Replace with actual functionality to add friends -->
+                <button type="button" class="button button-center" onclick="sendAssignmentsToServer()">Enviar
+                    correos</button>
             </form>
-        </section>
-
-        <section class="actions">
-            <button class="button" onclick="sendAssignmentsToServer()">Enviar correos</button>
-            <!-- Additional buttons or actions -->
         </section>
     </main>
 
