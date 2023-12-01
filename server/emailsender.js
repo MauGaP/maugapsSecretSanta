@@ -1,9 +1,9 @@
 const nodemailer = require('nodemailer');
-const createSecretSantaEmail = require('./emailtemplate');
+const createSecretSantaEmail = require('./emailtemplate.js');
 
 async function sendEmails(assignments) {
   const transporter = nodemailer.createTransport({
-    service: 'hotmail', // Update service to 'hotmail'
+    service: 'hotmail',
     auth: {
       user: process.env.EMAIL_USER,
       pass: process.env.EMAIL_PASS,
