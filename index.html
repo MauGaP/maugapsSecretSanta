@@ -6,8 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorteo del Amigo Invisible</title>
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- Add any additional CSS libraries or frameworks you might be using -->
+    <!-- Add any additional CSS libraries or frameworks you mi,ght be using -->
 </head>
 
 <body>
@@ -38,7 +37,9 @@
 
         <section class="friend-list">
             <form id="friendForm">
-                <button type="button" onclick="addFriendRow()">Añadir más amigos</button>
+                <button type="button" class="button" onclick="addFriendRow()">Añadir más amigos</button>
+                <button type="button" class="button" style="float: right;" onclick="clearParticipants()">Borrar
+                    todos</button>
                 <table id="friendsTable">
                     <thead>
                         <tr>
@@ -65,14 +66,13 @@
                         </tr>
                     </tbody>
                 </table>
-                <button type="button" onclick="clearParticipants()">Borrar todos</button>
 
                 <!-- Replace with actual functionality to add friends -->
             </form>
         </section>
 
         <section class="actions">
-            <button onclick="sendAssignmentsToServer()">Enviar correos</button>
+            <button class="button" onclick="sendAssignmentsToServer()">Enviar correos</button>
             <!-- Additional buttons or actions -->
         </section>
     </main>
