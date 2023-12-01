@@ -9,7 +9,7 @@ function isValidAssignment(giver, receiver) {
   if (giver.name === receiver.name) {
     return false;
   }
-  let excluded = giver.partner.split(',').map(name => name.trim().toLowerCase());
+  let excluded = giver.exclude.split(',').map(name => name.trim().toLowerCase());
   return !excluded.includes(receiver.name.toLowerCase());
 }
 

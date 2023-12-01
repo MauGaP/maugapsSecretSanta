@@ -20,7 +20,7 @@ function addFriendRow() {
   var emailInput = createInputField('email', 'email', 'correo@example.com');
   emailCell.appendChild(emailInput);
 
-  // Create partner cell
+  // Create exclude cell
   var excludeCell = newRow.insertCell(3);
   var excludeInput = createInputField('text', 'exclude', '');
   excludeCell.appendChild(excludeInput);

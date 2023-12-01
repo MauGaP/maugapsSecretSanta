@@ -27,9 +27,9 @@ function restoreFromSessionStorage() {
       const emailCell = row.insertCell(2);
       emailCell.innerHTML = `<input type="email" name="email" value="${participant.email}" onblur="saveToSessionStorage()">`;
 
-      // Partner cell
-      const partnerCell = row.insertCell(3);
-      partnerCell.innerHTML = `<input type="text" name="exclude" value="${participant.partner}" onblur="saveToSessionStorage()">`;
+      // Exclude cell
+      const excludeCell = row.insertCell(3);
+      excludeCell.innerHTML = `<input type="text" name="exclude" value="${participant.exclude}" onblur="saveToSessionStorage()">`;
     });
   }
 }

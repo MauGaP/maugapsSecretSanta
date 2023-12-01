@@ -10,7 +10,7 @@ function saveToSessionStorage() {
       id: cells[0].getElementsByTagName('input')[0].value, // Hidden ID
       name: cells[1].getElementsByTagName('input')[0].value,
       email: cells[2].getElementsByTagName('input')[0].value,
-      partner: cells[3].getElementsByTagName('input')[0].value,
+      exclude: cells[3].getElementsByTagName('input')[0].value,
     };
     participants.push(participant);
   }
