@@ -1,83 +1,19 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorteo del Amigo Invisible</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <!-- Add any additional CSS libraries or frameworks you might be using -->
+    <title>Secret Santa</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <!-- JavaScript Files -->
-    <script src="client/addfriends.script.js"></script>
-    <script src="client/assignsecretsantas.script.js"></script>
-    <script src="client/clearparticipants.script.js"></script>
-    <script src="client/restoresession.script.js"></script>
-    <script src="client/savesession.script.js"></script>
-    <script src="client/sendassignments.script.js"></script>
-
-    <!-- Inline Script for Event Listener -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            restoreFromSessionStorage();
-        });
-    </script>
-
-    <header>
-        <h1>Sorteo del Amigo Invisible</h1>
-        <!-- Add additional navigation or header content -->
-    </header>
-
-    <main>
-        <section class="instructions">
-            <!-- You can place introductory text or instructions here -->
-        </section>
-
-        <section class="friend-list">
-            <form id="friendForm">
-                <table id="friendsTable">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Email</th>
-                            <th>Exclusiones (nombres separados por comma)</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td><input type="text" name="name" value="Nombre"></td>
-                            <td><input type="email" name="email" value="correo@example.com"></td>
-                            <td><input type="text" name="exclude" value="Nombres"></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td><input type="text" name="name" value="Nombre"></td>
-                            <td><input type="email" name="email" value="correo@example.com"></td>
-                            <td><input type="text" name="exclude" value="Nombres"></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <button type="button" onclick="addFriendRow()">Añadir más amigos</button>
-                <button type="button" onclick="clearParticipants()">Borrar todos</button>
-                <button type="button" onclick="saveToSessionStorage()">Guardar</button>
-
-                <!-- Replace with actual functionality to add friends -->
-            </form>
-        </section>
-
-        <section class="actions">
-            <button onclick="sendAssignmentsToServer()">Enviar correos</button>
-            <!-- Additional buttons or actions -->
-        </section>
-    </main>
-
-    <footer>
-        <!-- Footer content such as links to FAQs, contact info, etc. -->
-    </footer>
+    <div id="app">
+        <h1>Secret Santa</h1>
+        <!-- Add your HTML content here -->
+    </div>
+    <script src="script.js"></script>
 </body>
 
 </html>
