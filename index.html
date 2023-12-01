@@ -42,24 +42,24 @@
                 <table id="friendsTable">
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th style="display: none;">ID</th>
                             <th>Nombre</th>
                             <th>Email</th>
-                            <th>Exclusiones (nombres separados por comma)</th>
+                            <th>Exclusiones (Nombres separados por comma)</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td>1</td>
+                            <td style="display:none;"><input type="hidden" name="id" value="1"></td>
                             <td><input type="text" name="name" value="Nombre" onblur="saveToSessionStorage()"></td>
-                            <td><input type="email" name="email" value="correo@example.com"
+                            <td><input type="email" name="email" value="correo@ejemplo.com"
                                     onblur="saveToSessionStorage()"></td>
                             <td><input type="text" name="exclude" value="" onblur="saveToSessionStorage()"></td>
                         </tr>
                         <tr>
-                            <td>2</td>
+                            <td style="display:none;"><input type="hidden" name="id" value="2"></td>
                             <td><input type="text" name="name" value="Nombre" onblur="saveToSessionStorage()"></td>
-                            <td><input type="email" name="email" value="correo@example.com"
+                            <td><input type="email" name="email" value="correo@ejemplo.com"
                                     onblur="saveToSessionStorage()"></td>
                             <td><input type="text" name="exclude" value="" onblur="saveToSessionStorage()"></td>
                         </tr>
