@@ -1,4 +1,4 @@
-function createSecretSantaEmail(receiverName, secretSantaFor) {
+function createSecretSantaEmailES(receiverName, secretSantaFor) {
   return `
     <html>
         <head>
@@ -33,11 +33,11 @@ function createSecretSantaEmail(receiverName, secretSantaFor) {
                     <p>Hola <strong>${receiverName}</strong>,</p>
                     <p>🎄Te toco ser el amigo invisible de: <strong>${secretSantaFor}</strong>!</p>
                     <p>Recorda que es un secreto y divertite buscando un 🎁regalo🎁!!</p>
-                    <p>🌟Happy Holidays!🌟</p>
+                    <p>🌟¡Felices Fiestas!🌟</p>
                 </div>
             </div>
         </body>
     </html>`;
 }
 
-module.exports = createSecretSantaEmail;
+module.exports = createSecretSantaEmailES;

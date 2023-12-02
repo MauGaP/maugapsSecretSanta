@@ -10,14 +10,14 @@ function addFriendRow() {
   idInput.value = table.rows.length; // Sequential ID based on the row count
   idCell.appendChild(idInput);
 
-  // Create name cell
+  // Name cell with translated default value
   var nameCell = newRow.insertCell(1);
-  var nameInput = createInputField('text', 'name', 'Nombre');
+  var nameInput = createInputField('text', 'name', languageData[currentLanguage].defaultName);
   nameCell.appendChild(nameInput);
 
-  // Create email cell
+  // Email cell with translated default value
   var emailCell = newRow.insertCell(2);
-  var emailInput = createInputField('email', 'email', 'correo@example.com');
+  var emailInput = createInputField('email', 'email', languageData[currentLanguage].defaultEmail);
   emailCell.appendChild(emailInput);
 
   // Create exclude cell
@@ -26,11 +26,11 @@ function addFriendRow() {
   excludeCell.appendChild(excludeInput);
 }
 
-function createInputField(type, name, value) {
+function createInputField(type, name, defaultValue) {
   var input = document.createElement('input');
   input.type = type;
   input.name = name;
-  input.value = value;
-  input.onblur = saveToSessionStorage; // Attach the onblur event
+  input.value = defaultValue;
+  input.onblur = saveToSessionStorage;
   return input;
 }

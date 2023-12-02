@@ -1,24 +1,29 @@
 function sendAssignmentsToServer() {
-    const assignments = JSON.parse(sessionStorage.getItem('secretSantaAssignments'));
-    if (!assignments) {
-        console.error('No assignments found in session storage');
-        return;
-    }
+  const assignments = JSON.parse(sessionStorage.getItem('secretSantaAssignments'));
+  const language = sessionStorage.getItem('preferredLanguage') || 'es'; // Default to Spanish if not set
 
-    fetch('http://localhost:3500/send-emails', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ assignments: assignments })
-    })
+  if (!assignments) {
+    console.error('No assignments found in session storage');
+    return;
+  }
+
+  fetch('http://localhost:3500/send-emails', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      assignments: assignments,
+      language: language, // Include the language preference in the request
+    }),
+  })
     .then(response => response.text())
     .then(data => {
-        console.log('Response from server:', data);
-        // You can add more UI feedback here, e.g., a success message
+      console.log('Response from server:', data);
+      // Additional UI feedback for success can be added here
     })
     .catch(error => {
-        console.error('Error sending assignments:', error);
-        // Handle the error in the UI as well
+      console.error('Error sending assignments:', error);
+      // Handle the error in the UI as well
     });
 }

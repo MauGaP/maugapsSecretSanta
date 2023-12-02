@@ -11,14 +11,13 @@ const port = 3500;
 app.use(bodyParser.json());
 app.use(cors({ origin: '*' })); // Allows requests from all origins
 
-app.post('/send-emails', (req, res) => {
+app.post('/send-emails', async (req, res) => {
   try {
-    const assignments = req.body.assignments; // Expecting assignments to be in the request body
-    sendEmails(assignments);
-    res.status(200).send('Emails are being sent.');
+    await sendEmails(req.body.assignments, req.body.language);
+    res.send('Emails sent successfully.');
   } catch (error) {
     console.error(error);
-    res.status(500).send('An error occurred while sending emails.');
+    res.status(500).send('Error sending emails');
   }
 });
 
