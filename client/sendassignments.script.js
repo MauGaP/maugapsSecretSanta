@@ -1,6 +1,6 @@
 function sendAssignmentsToServer() {
   const assignments = JSON.parse(sessionStorage.getItem('secretSantaAssignments'));
-  const language = sessionStorage.getItem('preferredLanguage') || 'es';
+  const currentLanguage = sessionStorage.getItem('preferredLanguage') || 'es';
 
   if (!assignments) {
     console.error('No assignments found in session storage');
@@ -14,7 +14,7 @@ function sendAssignmentsToServer() {
     },
     body: JSON.stringify({
       assignments: assignments,
-      language: language,
+      language: currentLanguage,
     }),
   })
     .then(response => response.text())

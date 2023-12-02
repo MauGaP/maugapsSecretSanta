@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 app.use(cors({ origin: '*' })); // TODO: This allows requests from all origins. Replace with secure url when deployed on prod.
 
 app.post('/send-emails', async (req, res) => {
+  console.log('language received: ', req.body.language);
   try {
     await sendEmails(req.body.assignments, req.body.language);
     res.send('Emails sent successfully.');

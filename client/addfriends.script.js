@@ -1,14 +1,14 @@
-function addFriendRow() {
+function addFriendRow(currentLang) {
   var table = document.getElementById('friendsTable').getElementsByTagName('tbody')[0];
   var newRow = table.insertRow();
 
   var idInput = createInputField('hidden', 'id', table.rows.length);
   appendCell(newRow, idInput, true);
 
-  var nameInput = createInputField('text', 'name', languageData[currentLanguage].defaultName);
+  var nameInput = createInputField('text', 'name', languageData[currentLang].defaultName);
   appendCell(newRow, nameInput);
 
-  var emailInput = createInputField('email', 'email', languageData[currentLanguage].defaultEmail);
+  var emailInput = createInputField('email', 'email', languageData[currentLang].defaultEmail);
   appendCell(newRow, emailInput);
 
   var excludeInput = createInputField('text', 'exclude', '');
@@ -18,6 +18,8 @@ function addFriendRow() {
   appendCell(newRow, deleteButton);
 
   updateDeleteButtonsState();
+
+  newRow.scrollIntoView({ behavior: 'smooth', block: 'end' });
 }
 
 function appendCell(row, element, isHidden = false) {
