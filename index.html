@@ -17,16 +17,23 @@
     <script src="client/restoresession.script.js"></script>
     <script src="client/savesession.script.js"></script>
     <script src="client/sendassignments.script.js"></script>
+    <script src="client/languageswitcher.script.js"></script>
+    <script src="client/translation.l18n.js"></script>
 
     <!-- Inline Script for Event Listener -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+            const storedLanguage = sessionStorage.getItem('preferredLanguage');
+            currentLanguage = storedLanguage ? storedLanguage : 'es'; // Use stored language or default to Spanish
+            switchLanguage(currentLanguage);
+            updateLanguageSwitcherText();
             restoreFromSessionStorage();
         });
     </script>
 
     <header>
-        <h1>Sorteo del Amigo Invisible</h1>
+        <a href="javascript:void(0)" id="languageSwitcher" onclick="toggleLanguage()">Switch to English</a>
+        <h1 id="headerTitle">🎅 Sorteo del Amigo Invisible 🎅</h1>
     </header>
 
     <main>
@@ -36,16 +43,17 @@
 
         <section class="friend-list">
             <form id="friendForm">
-                <button type="button" class="button" onclick="addFriendRow()">Añadir más amigos</button>
-                <button type="button" class="button button-right" onclick="clearParticipants()">Borrar
-                    todos</button>
+                <button id="addFriendsButton" type="button" class="button" onclick="addFriendRow()">Añadir más
+                    amigos</button>
+                <button id="clearAllButton" type="button" class="button button-right"
+                    onclick="clearParticipants()">Borrar todos</button>
                 <table id="friendsTable">
                     <thead>
                         <tr>
                             <th style="display: none;">ID</th>
-                            <th>Nombre</th>
-                            <th>Email</th>
-                            <th>Exclusiones (Nombres separados por comma)</th>
+                            <th id="nameTh">Nombre</th>
+                            <th id="emailTh">Email</th>
+                            <th id="exclusionTh">Exclusiones (Nombres separados por comma)</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -65,8 +73,8 @@
                         </tr>
                     </tbody>
                 </table>
-                <button type="button" class="button button-center" onclick="sendAssignmentsToServer()">Enviar
-                    correos</button>
+                <button id="sendEmailsButton" type="button" class="button button-center"
+                    onclick="sendAssignmentsToServer()">Enviar correos</button>
             </form>
         </section>
     </main>
