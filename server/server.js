@@ -9,7 +9,7 @@ const app = express();
 const port = 3500;
 
 app.use(bodyParser.json());
-app.use(cors({ origin: '*' })); // Allows requests from all origins
+app.use(cors({ origin: '*' })); // TODO: This allows requests from all origins. Replace with secure url when deployed on prod.
 
 app.post('/send-emails', async (req, res) => {
   try {

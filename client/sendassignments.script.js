@@ -1,6 +1,6 @@
 function sendAssignmentsToServer() {
   const assignments = JSON.parse(sessionStorage.getItem('secretSantaAssignments'));
-  const language = sessionStorage.getItem('preferredLanguage') || 'es'; // Default to Spanish if not set
+  const language = sessionStorage.getItem('preferredLanguage') || 'es';
 
   if (!assignments) {
     console.error('No assignments found in session storage');
@@ -14,16 +14,14 @@ function sendAssignmentsToServer() {
     },
     body: JSON.stringify({
       assignments: assignments,
-      language: language, // Include the language preference in the request
+      language: language,
     }),
   })
     .then(response => response.text())
     .then(data => {
       console.log('Response from server:', data);
-      // Additional UI feedback for success can be added here
     })
     .catch(error => {
       console.error('Error sending assignments:', error);
-      // Handle the error in the UI as well
     });
 }

@@ -8,7 +8,7 @@ const languageData = {
     emailTh: 'Email',
     exclusionTh: 'Exclusions (Comma separated names)',
     defaultName: 'Name',
-    defaultEmail: 'name@example.com',
+    defaultEmail: 'email@example.com',
   },
   es: {
     headerTitle: '🎅 Sorteo del Amigo Invisible 🎅',

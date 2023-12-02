@@ -21,7 +21,7 @@ function switchLanguage(lang) {
 
 function toggleLanguage() {
   currentLanguage = currentLanguage === 'es' ? 'en' : 'es';
-  sessionStorage.setItem('preferredLanguage', currentLanguage); // Store in session storage
+  sessionStorage.setItem('preferredLanguage', currentLanguage);
   switchLanguage(currentLanguage);
   updateLanguageSwitcherText();
 }
