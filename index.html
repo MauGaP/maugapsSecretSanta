@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sorteo del Amigo Invisible</title>
     <link rel="stylesheet" href="css/styles.css">
+    <script src="https://kit.fontawesome.com/9cc3cf5786.js" crossorigin="anonymous"></script>
     <!-- Add any additional CSS libraries or frameworks you mi,ght be using -->
 </head>
 
@@ -19,6 +20,7 @@
     <script src="client/sendassignments.script.js"></script>
     <script src="client/languageswitcher.script.js"></script>
     <script src="client/translation.l18n.js"></script>
+    <script src="client/deletefriend.script.js"></script>
 
     <!-- Inline Script for Event Listener -->
     <script>
@@ -54,6 +56,7 @@
                             <th id="nameTh">Nombre</th>
                             <th id="emailTh">Email</th>
                             <th id="exclusionTh">Exclusiones (Nombres separados por comma)</th>
+                            <th id="deleteTh">Borrar</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -63,6 +66,9 @@
                             <td><input type="email" name="email" value="correo@ejemplo.com"
                                     onblur="saveToSessionStorage()"></td>
                             <td><input type="text" name="exclude" value="" onblur="saveToSessionStorage()"></td>
+                            <td><button class="delete-btn disabled" onclick="deleteRow(this)">
+                                    <i class="fa-solid fa-trash-can"></i></button>
+                            </td>
                         </tr>
                         <tr>
                             <td style="display:none;"><input type="hidden" name="id" value="2"></td>
@@ -70,6 +76,10 @@
                             <td><input type="email" name="email" value="correo@ejemplo.com"
                                     onblur="saveToSessionStorage()"></td>
                             <td><input type="text" name="exclude" value="" onblur="saveToSessionStorage()"></td>
+                            <td><button class="delete-btn disabled" onclick="deleteRow(this)">
+                                    <i class="fa-solid fa-trash-can"></i></button>
+                            </td>
+
                         </tr>
                     </tbody>
                 </table>

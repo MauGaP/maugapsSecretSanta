@@ -74,6 +74,18 @@ tbody tr:nth-child(odd) {
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.5);
 }
 
+.delete-btn {
+  border: none;
+  background: none;
+  color: red;
+  cursor: pointer;
+}
+
+.delete-btn.disabled {
+  color: #cccccc; /* Lighter color for disabled state */
+  cursor: default;
+}
+
 footer {
   text-align: center;
   padding-top: 20px;
