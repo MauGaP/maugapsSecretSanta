@@ -9,21 +9,42 @@ function restoreFromSessionStorage() {
     storedParticipants.forEach(participant => {
       const row = table.insertRow();
 
-      const idCell = row.insertCell(0);
-      idCell.style.display = 'none';
-      const idInput = document.createElement('input');
-      idInput.type = 'hidden';
-      idInput.value = participant.id;
-      idCell.appendChild(idInput);
+      const idInput = createInputField('hidden', 'id', participant.id);
+      appendCell(row, idInput, true);
 
-      const nameCell = row.insertCell(1);
-      nameCell.innerHTML = `<input type="text" name="name" value="${participant.name}" onblur="saveToSessionStorage()">`;
+      const nameInput = createInputField('text', 'name', participant.name);
+      appendCell(row, nameInput);
 
-      const emailCell = row.insertCell(2);
-      emailCell.innerHTML = `<input type="email" name="email" value="${participant.email}" onblur="saveToSessionStorage()">`;
+      const emailInput = createInputField('email', 'email', participant.email);
+      appendCell(row, emailInput);
 
-      const excludeCell = row.insertCell(3);
-      excludeCell.innerHTML = `<input type="text" name="exclude" value="${participant.exclude}" onblur="saveToSessionStorage()">`;
+      const excludeInput = createInputField('text', 'exclude', participant.exclude);
+      appendCell(row, excludeInput);
+
+      const deleteButton = createDeleteButton();
+      appendCell(row, deleteButton);
     });
+
+    updateDeleteButtonsState();
   }
+}
+
+function appendCell(row, element, isHidden = false) {
+  const cell = row.insertCell();
+  if (isHidden) {
+    cell.style.display = 'none';
+  }
+  cell.appendChild(element);
+}
+
+function createDeleteButton() {
+  const button = document.createElement('button');
+  button.className = 'delete-btn';
+  button.onclick = function () {
+    deleteRow(this);
+  };
+  const icon = document.createElement('i');
+  icon.className = 'fa-solid fa-trash-can';
+  button.appendChild(icon);
+  return button;
 }
