@@ -14,13 +14,12 @@ function saveToSessionStorage() {
     participants.push(participant);
   }
 
-  sessionStorage.setItem('secretSantaAssignments', JSON.stringify(participants));
-
   try {
     const assignedParticipants = assignSecretSantas(participants);
     sessionStorage.setItem('secretSantaAssignments', JSON.stringify(assignedParticipants));
   } catch (error) {
     console.error('Error in Secret Santa assignment:', error.message);
+    sessionStorage.removeItem('secretSantaAssignments');
   } finally {
     updateDeleteButtonsState();
   }
