@@ -21,6 +21,13 @@
     <!-- Inline Script for Event Listener -->
     <script>
         document.addEventListener('DOMContentLoaded', function () {
+<<<<<<< Updated upstream
+=======
+            const storedLanguage = sessionStorage.getItem('preferredLanguage');
+            currentLanguage = storedLanguage ? storedLanguage : 'es';
+            switchLanguage(currentLanguage);
+            updateLanguageSwitcherText();
+>>>>>>> Stashed changes
             restoreFromSessionStorage();
         });
     </script>

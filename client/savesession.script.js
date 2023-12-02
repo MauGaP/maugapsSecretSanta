@@ -3,10 +3,17 @@ function saveToSessionStorage() {
   const rows = table.rows;
   const participants = [];
 
+<<<<<<< Updated upstream
   // Gather participant data
   for (let i = 0; i < rows.length; i++) {
     const cells = rows[i].cells;
     const participant = {
+=======
+  for (let i = 0; i < rows.length; i++) {
+    const cells = rows[i].cells;
+    const participant = {
+      id: cells[0].getElementsByTagName('input')[0].value,
+>>>>>>> Stashed changes
       name: cells[1].getElementsByTagName('input')[0].value,
       email: cells[2].getElementsByTagName('input')[0].value,
       partner: cells[3].getElementsByTagName('input')[0].value,
@@ -14,9 +21,7 @@ function saveToSessionStorage() {
     participants.push(participant);
   }
 
-  // Assign Secret Santas
   const assignedParticipants = assignSecretSantas(participants);
 
-  // Save assignments to session storage
   sessionStorage.setItem('secretSantaAssignments', JSON.stringify(assignedParticipants));
 }

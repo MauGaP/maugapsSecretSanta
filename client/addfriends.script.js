@@ -3,7 +3,15 @@ function addFriendRow() {
   var newRow = table.insertRow();
 
   var idCell = newRow.insertCell(0);
+<<<<<<< Updated upstream
   idCell.textContent = table.rows.length; // Assuming ID is the row number
+=======
+  idCell.style.display = 'none';
+  var idInput = document.createElement('input');
+  idInput.type = 'hidden';
+  idInput.value = table.rows.length;
+  idCell.appendChild(idInput);
+>>>>>>> Stashed changes
 
   var nameCell = newRow.insertCell(1);
   var nameInput = createInputField('text', 'name', 'Nombre');
