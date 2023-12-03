@@ -43,7 +43,7 @@ footer {
 
 main {
   flex-grow: 1;
-  margin-top: 170px;
+  margin-top: 140px;
   margin-bottom: 100; /* Adjust based on footer height */
   padding: 10px; /* Optional padding */
 }
