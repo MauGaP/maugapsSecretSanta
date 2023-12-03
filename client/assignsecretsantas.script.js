@@ -40,7 +40,7 @@ function tryAssignSecretSantas(participants, maxAttempts = 100) {
     attempts++;
   }
 
-  throw new Error('Unable to find a valid Secret Santa assignment');
+  return 'noValidAssignments';
 }
 
 function removeDuplicateParticipants(participants) {
@@ -57,10 +57,15 @@ function assignSecretSantas(allParticipants) {
   let participants = removeDuplicateParticipants(allParticipants);
 
   if (checkForDuplicateNames(participants)) {
-    throw new Error('Duplicate names found in participant list');
+    return 'duplicateNamesError'; // Specific key for duplicate names error
   }
 
-  return tryAssignSecretSantas(participants);
+  const assignmentResult = tryAssignSecretSantas(participants);
+  if (typeof assignmentResult === 'string') {
+    return assignmentResult;
+  }
+
+  return assignmentResult;
 }
 
 function checkForDuplicateNames(participants) {

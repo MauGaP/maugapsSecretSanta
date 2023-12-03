@@ -1,4 +1,5 @@
 function restoreFromSessionStorage() {
+  hideMessage();
   const storedParticipants = JSON.parse(sessionStorage.getItem('secretSantaAssignments'));
   if (storedParticipants) {
     const table = document.getElementById('friendsTable').getElementsByTagName('tbody')[0];

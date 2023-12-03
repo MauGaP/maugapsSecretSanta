@@ -11,44 +11,77 @@
 </head>
 
 <body>
-    <!-- JavaScript Files -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var currentLang = sessionStorage.getItem('preferredLanguage') || 'es';
+
+            switchLanguage(currentLang);
+            updateLanguageSwitcherText(currentLang);
+            restoreFromSessionStorage();
+            updateSendEmailButtonState();
+
+            attachEventListeners(currentLang);
+        });
+
+        function attachEventListeners(currentLang) {
+            var addFriendButton = document.getElementById('addFriendsButton');
+            var clearAllButton = document.getElementById('clearAllButton');
+            var sendEmailButton = document.getElementById('sendEmailsButton');
+
+            if (addFriendButton) {
+                addFriendButton.addEventListener('click', function () {
+                    addFriendRow(currentLang);
+                });
+            }
+
+            if (clearAllButton) {
+                clearAllButton.addEventListener('click', function () {
+                    clearParticipants(currentLang);
+                    hideMessage();
+                    updateSendEmailButtonState();
+                });
+            }
+
+            if (sendEmailButton) {
+                sendEmailButton.addEventListener('click', function () {
+                    sendAssignmentsToServer(); // Pass currentLang if needed
+                });
+            }
+
+            var languageSwitcher = document.getElementById('languageSwitcher');
+            if (languageSwitcher) {
+                languageSwitcher.addEventListener('click', function () {
+                    toggleLanguage();
+                });
+            }
+        }
+
+    </script>
     <script src="client/addfriends.script.js"></script>
     <script src="client/assignsecretsantas.script.js"></script>
     <script src="client/clearparticipants.script.js"></script>
+    <script src="client/deletefriend.script.js"></script>
+    <script src="client/displaymessage.script.js"></script>
+    <script src="client/languageswitcher.script.js"></script>
     <script src="client/restoresession.script.js"></script>
     <script src="client/savesession.script.js"></script>
     <script src="client/sendassignments.script.js"></script>
-    <script src="client/languageswitcher.script.js"></script>
     <script src="client/translation.l18n.js"></script>
-    <script src="client/deletefriend.script.js"></script>
-
-    <!-- Inline Script for Event Listener -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const storedLanguage = sessionStorage.getItem('preferredLanguage');
-            currentLanguage = storedLanguage ? storedLanguage : 'es';
-            switchLanguage(currentLanguage);
-            updateLanguageSwitcherText();
-            restoreFromSessionStorage();
-        });
-    </script>
 
     <header>
-        <a href="javascript:void(0)" id="languageSwitcher" onclick="toggleLanguage()">Switch to English</a>
+        <a href="javascript:void(0)" id="languageSwitcher">Switch to English</a>
         <h1 id="headerTitle">🎅 Sorteo del Amigo Invisible 🎅</h1>
+        <div class="header-actions">
+            <button id="addFriendsButton" type="button" class="button">Añadir más amigos</button>
+            <button id="clearAllButton" type="button" class="button button-right">Borrar todos</button>
+        </div>
     </header>
 
     <main>
         <section class="instructions">
-            <!-- You can place introductory text or instructions here -->
         </section>
-
         <section class="friend-list">
             <form id="friendForm">
-                <button id="addFriendsButton" type="button" class="button" onclick="addFriendRow()">Añadir más
-                    amigos</button>
-                <button id="clearAllButton" type="button" class="button button-right"
-                    onclick="clearParticipants()">Borrar todos</button>
                 <table id="friendsTable">
                     <thead>
                         <tr>
@@ -83,14 +116,18 @@
                         </tr>
                     </tbody>
                 </table>
-                <button id="sendEmailsButton" type="button" class="button button-center"
-                    onclick="sendAssignmentsToServer()">Enviar correos</button>
+
             </form>
+
         </section>
     </main>
-
     <footer>
-        <!-- Footer content such as links to FAQs, contact info, etc. -->
+        <div class="actions">
+            <div id="messageArea"></div>
+            <button id="sendEmailsButton" disabled type="button" class="button button-center">Enviar
+                correos</button>
+            <div id="messageArea"></div>
+        </div>
     </footer>
 </body>
 

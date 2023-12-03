@@ -1,14 +1,51 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #fdfdfd;
+  background-color: #f8f9fa;
   color: #333;
   margin: 0;
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
 }
 
 header {
+  align-items: center;
   text-align: center;
-  margin-bottom: 30px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: #f8f9fa; /* or your preferred color */
+  z-index: 1000;
+}
+
+#headerTitle {
+  margin: 30px;
+}
+
+#languageSwitcher {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  cursor: pointer;
+  /* Additional styling for the link */
+}
+
+footer {
+  text-align: center;
+  background-color: #f8f9fa;
+  color: #6c757d;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+main {
+  flex-grow: 1;
+  margin-top: 140px;
+  margin-bottom: 100; /* Adjust based on footer height */
+  padding: 10px; /* Optional padding */
 }
 
 h1 {
@@ -17,7 +54,6 @@ h1 {
 
 table {
   width: 100%;
-  margin: 20px auto;
   border-collapse: collapse;
   border-radius: 8px;
   overflow: hidden;
@@ -50,15 +86,17 @@ tbody tr:nth-child(odd) {
   transition: background-color 0.3s, box-shadow 0.3s;
   text-align: center;
   cursor: pointer;
-}
-
-.button-right {
-  float: right;
+  margin: 20px 0;
 }
 
 .button-center {
   display: block;
   margin: auto;
+  margin-bottom: 20px;
+}
+
+.button-right {
+  margin-right: 40px;
 }
 
 .button:hover {
@@ -86,22 +124,46 @@ tbody tr:nth-child(odd) {
   cursor: default;
 }
 
-footer {
-  text-align: center;
-  padding-top: 20px;
-  font-size: 0.8em;
-  background-color: #f8f9fa;
-  color: #6c757d;
-}
-
 .friend-list {
   width: 80%;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 120px;
   background-color: #fff;
   padding: 15px;
   border-radius: 5px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.friend-list.with-message {
+  margin-top: 20px;
+}
+
+.header-actions {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  box-sizing: border-box; /* Include padding in the width */
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+#messageArea {
+  display: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.message-success {
+  color: green;
+}
+
+.message-error {
+  color: red;
+}
+
+.actions {
+  text-align: center;
 }
 
 #friendsTable input[type='text'],
@@ -117,4 +179,14 @@ footer {
 #friendsTable input[type='text']:focus,
 #friendsTable input[type='email']:focus {
   background-color: #e9ecef;
+}
+
+#sendEmailsButton:disabled {
+  margin-top: 20px;
+}
+
+#sendEmailsButton:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
 }
