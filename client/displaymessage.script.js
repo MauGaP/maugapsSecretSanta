@@ -1,17 +1,17 @@
 function displayMessage(message, isError = false) {
   const messageArea = document.getElementById('messageArea');
-  const friendList = document.querySelector('.friend-list'); // Get the friend-list element
+  const friendList = document.querySelector('.friend-list');
 
   messageArea.textContent = message;
   messageArea.classList.remove('message-success', 'message-error');
-  friendList.classList.remove('with-message'); // Ensure previous message styling is cleared
+  friendList.classList.remove('with-message');
 
   if (isError) {
     messageArea.classList.add('message-error');
-    friendList.classList.add('with-message'); // Add padding when there is an error message
+    friendList.classList.add('with-message');
   } else {
     messageArea.classList.add('message-success');
-    friendList.classList.add('with-message'); // Add padding for success message as well
+    friendList.classList.add('with-message');
   }
 
   messageArea.style.display = 'block';
