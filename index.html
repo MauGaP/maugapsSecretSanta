@@ -4,70 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sorteo del Amigo Invisible</title>
+    <title>Amigo Invisible</title>
     <link rel="stylesheet" href="css/styles.css">
     <script src="https://kit.fontawesome.com/9cc3cf5786.js" crossorigin="anonymous"></script>
-    <!-- Add any additional CSS libraries or frameworks you mi,ght be using -->
 </head>
 
 <body>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var currentLang = sessionStorage.getItem('preferredLanguage') || 'es';
-
-            switchLanguage(currentLang);
-            updateLanguageSwitcherText(currentLang);
-            restoreFromSessionStorage();
-            updateSendEmailButtonState();
-
-            attachEventListeners(currentLang);
-        });
-
-        function attachEventListeners(currentLang) {
-            var addFriendButton = document.getElementById('addFriendsButton');
-            var clearAllButton = document.getElementById('clearAllButton');
-            var sendEmailButton = document.getElementById('sendEmailsButton');
-
-            if (addFriendButton) {
-                addFriendButton.addEventListener('click', function () {
-                    addFriendRow(currentLang);
-                });
-            }
-
-            if (clearAllButton) {
-                clearAllButton.addEventListener('click', function () {
-                    clearParticipants(currentLang);
-                    hideMessage();
-                    updateSendEmailButtonState();
-                });
-            }
-
-            if (sendEmailButton) {
-                sendEmailButton.addEventListener('click', function () {
-                    sendAssignmentsToServer();
-                });
-            }
-
-            var languageSwitcher = document.getElementById('languageSwitcher');
-            if (languageSwitcher) {
-                languageSwitcher.addEventListener('click', function () {
-                    toggleLanguage();
-                });
-            }
-        }
-
-    </script>
-    <script src="client/addfriends.script.js"></script>
-    <script src="client/assignsecretsantas.script.js"></script>
-    <script src="client/clearparticipants.script.js"></script>
-    <script src="client/deletefriend.script.js"></script>
-    <script src="client/displaymessage.script.js"></script>
-    <script src="client/languageswitcher.script.js"></script>
-    <script src="client/restoresession.script.js"></script>
-    <script src="client/savesession.script.js"></script>
-    <script src="client/sendassignments.script.js"></script>
-    <script src="client/translation.l18n.js"></script>
-
     <header>
         <a href="javascript:void(0)" id="languageSwitcher">Switch to English</a>
         <h1 id="headerTitle">🎅 Sorteo del Amigo Invisible 🎅</h1>
@@ -94,33 +36,51 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td style="display:none;"><input type="hidden" name="id" value="1"></td>
-                            <td><input type="text" name="name" value="Nombre" onblur="saveToSessionStorage()"></td>
-                            <td><input type="email" name="email" value="correo@ejemplo.com"
-                                    onblur="saveToSessionStorage()"></td>
-                            <td><input type="text" name="exclude" value="" onblur="saveToSessionStorage()"></td>
-                            <td><button class="delete-btn disabled" onclick="deleteRow(this)">
-                                    <i class="fa-solid fa-trash-can"></i></button>
+                            <td style="display:none;">
+                                <input type="hidden" name="id" value="1">
+                            </td>
+                            <td>
+                                <input type="text" name="name" value="Nombre" onblur="saveToSessionStorage()">
+                            </td>
+                            <td>
+                                <input type="email" name="email" value="correo@ejemplo.com"
+                                    onblur="saveToSessionStorage()">
+                            </td>
+                            <td>
+                                <input type="text" name="exclude" value="" onblur="saveToSessionStorage()">
+                            </td>
+                            <td>
+                                <button class="delete-btn disabled" onclick="deleteRow(this)">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
                             </td>
                         </tr>
                         <tr>
-                            <td style="display:none;"><input type="hidden" name="id" value="2"></td>
-                            <td><input type="text" name="name" value="Nombre" onblur="saveToSessionStorage()"></td>
-                            <td><input type="email" name="email" value="correo@ejemplo.com"
-                                    onblur="saveToSessionStorage()"></td>
-                            <td><input type="text" name="exclude" value="" onblur="saveToSessionStorage()"></td>
-                            <td><button class="delete-btn disabled" onclick="deleteRow(this)">
-                                    <i class="fa-solid fa-trash-can"></i></button>
+                            <td style="display:none;">
+                                <input type="hidden" name="id" value="2">
                             </td>
-
+                            <td>
+                                <input type="text" name="name" value="Nombre" onblur="saveToSessionStorage()">
+                            </td>
+                            <td>
+                                <input type="email" name="email" value="correo@ejemplo.com"
+                                    onblur="saveToSessionStorage()">
+                            </td>
+                            <td>
+                                <input type="text" name="exclude" value="" onblur="saveToSessionStorage()">
+                            </td>
+                            <td>
+                                <button class="delete-btn disabled" onclick="deleteRow(this)">
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </td>
                         </tr>
                     </tbody>
                 </table>
-
             </form>
-
         </section>
     </main>
+
     <footer>
         <div class="actions">
             <div id="messageArea"></div>
@@ -129,6 +89,17 @@
             <div id="messageArea"></div>
         </div>
     </footer>
+    <script src="client/addfriends.script.js"></script>
+    <script src="client/assignsecretsantas.script.js"></script>
+    <script src="client/clearparticipants.script.js"></script>
+    <script src="client/deletefriend.script.js"></script>
+    <script src="client/displaymessage.script.js"></script>
+    <script src="client/languageswitcher.script.js"></script>
+    <script src="client/restoresession.script.js"></script>
+    <script src="client/savesession.script.js"></script>
+    <script src="client/sendassignments.script.js"></script>
+    <script src="client/translation.l18n.js"></script>
+    <script src="client/init.script.js"></script>
 </body>
 
 </html>
