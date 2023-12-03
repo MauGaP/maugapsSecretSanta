@@ -19,7 +19,7 @@ function addFriendRow(currentLang) {
 
   updateDeleteButtonsState();
 
-  newRow.scrollIntoView({ behavior: 'smooth', block: 'end' });
+  newRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
 }
 
 function appendCell(row, element, isHidden = false) {
