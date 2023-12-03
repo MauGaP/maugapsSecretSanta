@@ -57,7 +57,7 @@ function assignSecretSantas(allParticipants) {
   let participants = removeDuplicateParticipants(allParticipants);
 
   if (checkForDuplicateNames(participants)) {
-    return 'duplicateNamesError'; // Specific key for duplicate names error
+    return 'duplicateNamesError';
   }
 
   const assignmentResult = tryAssignSecretSantas(participants);

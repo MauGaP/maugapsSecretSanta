@@ -15,12 +15,11 @@ function saveToSessionStorage() {
     participants.push(participant);
   }
 
-  // Check for duplicate names before trying to assign
   if (hasDuplicateNames(participants)) {
     displayMessage(languageData[currentLang]['duplicateNamesError'], true);
     sessionStorage.removeItem('secretSantaAssignments');
     updateSendEmailButtonState();
-    return; // Exit the function to avoid further processing
+    return;
   }
 
   try {
@@ -41,9 +40,9 @@ function hasDuplicateNames(participants) {
   for (const participant of participants) {
     const name = participant.name.toLowerCase();
     if (nameSet.has(name)) {
-      return true; // Duplicate found
+      return true;
     }
     nameSet.add(name);
   }
-  return false; // No duplicates
+  return false;
 }

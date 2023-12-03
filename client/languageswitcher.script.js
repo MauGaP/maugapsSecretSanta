@@ -45,11 +45,8 @@ function updateLanguageSwitcherText(lang) {
 function updateMessageForLanguageChange(lang) {
   const messageArea = document.getElementById('messageArea');
   if (messageArea.style.display !== 'none') {
-    // Check if the message area has an error class to determine the type of message
     const isError = messageArea.classList.contains('message-error');
-    const messageType = isError ? 'noAssignments' : 'assignmentsSuccessful'; // Use appropriate keys
-
-    // Display the message in the new language
+    const messageType = isError ? 'noAssignments' : 'assignmentsSuccessful';
     displayMessage(languageData[lang][messageType], isError);
   }
 }
