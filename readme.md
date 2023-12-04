@@ -1,5 +1,7 @@
 # Secret Santa Application
 
+![alt text](https://github.com/MauGaP/maugapsSecretSanta/blob/main/maugap_secret_santa.png?raw=true)
+
 ## Overview
 
 This Secret Santa application facilitates the organization of a Secret Santa gift exchange. It allows participants to be added, assigns Secret Santas randomly, and sends email notifications with assignments. The application supports both English and Spanish languages.
