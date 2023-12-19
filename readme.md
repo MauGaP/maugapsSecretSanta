@@ -1,4 +1,6 @@
 # Secret Santa Application
+🎅 Secret Santa Magic: Email-Enabled Gift Exchange Organizer 🎄
+Transform the holiday gift-giving experience! This unique project combines the joy of Secret Santa with the convenience of technology, featuring a web service that not only assigns your Secret Santa but also discreetly notifies each participant via email. Perfect for friends, family, and office parties!
 
 ![alt text](https://github.com/MauGaP/maugapsSecretSanta/blob/main/maugap_secret_santa.png?raw=true)
 
